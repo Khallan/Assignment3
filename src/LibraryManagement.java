@@ -12,7 +12,7 @@ public class LibraryManagement {
         boolean running = true;
 
         while (running) {
-            System.out.println("===========================");
+            System.out.println("\n===========================");
             System.out.println("Library Management System");
             System.out.println("1. Add Member");
             System.out.println("2. Add Book");
@@ -116,6 +116,7 @@ public class LibraryManagement {
                     }
                     break;
                 case 6:
+                	Transaction.getTransaction().displayTransactionHistory();
                     break;
                 case 7:
                     System.out.println("Exiting. Good Bye..");
