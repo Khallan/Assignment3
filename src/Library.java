@@ -7,9 +7,9 @@ public class Library {
 
     // Add a new member to the library
     public boolean addMember(Member member) {
+    	//Tests if the member already exists
     	if (findMemberById(member.getId()) != null) {
-    		System.out.println("Member with ID " + member.getId() + " already exists.");
-    		return false; //If a duplicate ID is found
+    		return false; 
     	}
     	//Adds the member
     	members.add(member);
@@ -20,11 +20,10 @@ public class Library {
     public boolean addBook(Book book) {
     	//Tests if the book already exists
         if(findBookById(book.getId()) != null) {
-        	System.out.println("Book is already catalogued " + book.getId());
         	return false;
         }
         //Adds book
-        book.add(book);
+        books.add(book);
         return true;
     }
 
