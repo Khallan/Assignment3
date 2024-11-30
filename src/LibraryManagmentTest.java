@@ -19,5 +19,35 @@ class LibraryManagmentTest {
 		assertThrows(Exception.class, () -> new Book(1000, "Number is invalid to high. Choose between 100 - 999"));
 	}
 	
+	@Test
+	public void testBorrowReturn() throws Exception {
+		
+		//This checks if there is a book available with the same ID
+		Book book = new Book (100, "Programming");
+		assertTrue(book.isAvailable());
+		
+		//Initiates the member test case
+		Member member = new Member(1111, "George");
+		
+		//This calls the transaction and then uses it to call borrowBook for the specific book and member, then ensures 
+		//if the book is unavailable, or already borrowed
+		Transaction transaction = Transaction.getTransaction();	
+		assertTrue(transaction.borrowBook(book, member));
+		
+		//If the same book is then borrowed again, there will be a fail
+		assertFalse(transaction.borrowBook(book, member));
+		
+		//Then this returns the book, sets it back to available and test if member1 has the book
+		transaction.returnBook(book, member);
+		assertTrue(book.isAvailable());
+		assertFalse(member.getBorrowedBooks().contains(book));
+			
+		//This calls the return function again and checks if the member has the book which he does not as it has been returned
+		transaction.returnBook(book, member);
+		assertFalse(member.getBorrowedBooks().contains(book));
+	}
+	
+	
+	
 
 }
