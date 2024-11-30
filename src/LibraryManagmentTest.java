@@ -1,5 +1,5 @@
 import static org.junit.jupiter.api.Assertions.*;
-
+import java.lang.reflect.Constructor;
 import org.junit.jupiter.api.Test;
 
 class LibraryManagmentTest {
@@ -43,10 +43,27 @@ class LibraryManagmentTest {
 		assertFalse(member.getBorrowedBooks().contains(book));
 			
 		//This calls the return function again and checks if the member has the book which he does not as it has been returned
-		transaction.returnBook(book, member);
-		assertFalse(member.getBorrowedBooks().contains(book));
+		transaction.returnBook(book, member); 
+	    assertTrue(book.isAvailable()); 
+	    assertFalse(member.getBorrowedBooks().contains(book));
+
 	}
-	
+	@Test
+	public void testSingletonTransaction() throws Exception {
+		
+//		try {
+//			//Gets the constructor from the transaction class
+//			Constructor<Transaction> constructor = Transaction.class.getDeclaredConstructor();
+//			int modifiers = constructor.getModifiers();	
+//			assertTrue(Modifier.PRIVATE, modifiers & modifi);
+//			
+//		} catch (Exception e) {
+//			//If the constructor is not found
+//			
+//		}
+		
+
+	}
 	
 	
 
