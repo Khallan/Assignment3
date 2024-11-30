@@ -1,1 +1,5 @@
-2024-11-26 20:32:22 - Borrowing: Khallan borrowed BFG
+2024-11-26 22:11:41 - Borrowing: George borrowed Programming
+2024-11-26 22:11:51 - Borrowing: George borrowed Math
+2024-11-26 22:12:10 - Borrowing: Anne borrowed AI
+2024-11-26 22:12:42 - Returning: George returned Math
+2024-11-26 22:12:58 - Borrowing: Anne borrowed Math

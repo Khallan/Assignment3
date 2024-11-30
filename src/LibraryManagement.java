@@ -55,15 +55,20 @@ public class LibraryManagement {
                     
                     scanner.nextLine();
                     
-                    Book newBook = new Book(id, title);
-                    
-                    //This prints out whether the book as been added or not
-                    boolean added1 = library.addBook(newBook);
-                	if (added1) {
-                        System.out.print("Book added successfully.");
-                	} else {
-                        System.out.print("Book with that ID already exists");
-                	}
+					Book newBook;
+					try {
+						newBook = new Book(id, title);
+	                    //This either shows the user success when book is entered or if there is a duplicate ID
+	                    boolean added1 = library.addBook(newBook);
+	                	if (added1) {
+	                        System.out.print("Book added successfully.");
+	                	} else {
+	                        System.out.print("Book with that ID already exists");
+	                	}
+					} catch (Exception e) {
+						//Throws exception when an ID has verified as invalid
+						System.out.println("Invalid ID " + id);
+					}
                     
                     break;
                 case 3:
