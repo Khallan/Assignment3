@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import org.junit.jupiter.api.Test;
 
 class LibraryManagmentTest {
@@ -50,18 +51,11 @@ class LibraryManagmentTest {
 	}
 	@Test
 	public void testSingletonTransaction() throws Exception {
-		
-//		try {
-//			//Gets the constructor from the transaction class
-//			Constructor<Transaction> constructor = Transaction.class.getDeclaredConstructor();
-//			int modifiers = constructor.getModifiers();	
-//			assertTrue(Modifier.PRIVATE, modifiers & modifi);
-//			
-//		} catch (Exception e) {
-//			//If the constructor is not found
-//			
-//		}
-		
+	        Constructor<Transaction> constructor = Transaction.class.getDeclaredConstructor();
+
+	        //Verifies if the constructor is private
+	        int modifiers = constructor.getModifiers(); 
+	        assertTrue(Modifier.isPrivate(modifiers)); 
 
 	}
 	
